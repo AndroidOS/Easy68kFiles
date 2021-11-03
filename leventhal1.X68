@@ -10,7 +10,10 @@ START:                  ; first instruction of program
 * Put program code here
      move    #10,d0      ; move 10 into D0
      move    #50,d1      ; move 50 into D1
-     sub d0,d1           ; subtract D0 from D1 and put the result in D1
+     sub      d0,d1      ; subtract D0 from D1 and put the result in D1
+     move     d1,d3      ; move D1 to D3
+     
+     add      d0,d1      ; add D0 into D1
      
 
 
@@ -19,6 +22,7 @@ START:                  ; first instruction of program
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
