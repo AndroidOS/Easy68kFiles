@@ -15,6 +15,9 @@ START:                  ; first instruction of program
      
      add      d0,d1      ; add D0 into D1
      
+     move     #20,d0     ; move 20 to D0
+     rol      #2,d0      ; rotate left by 2
+     
 
 
     SIMHALT             ; halt simulator
@@ -22,6 +25,8 @@ START:                  ; first instruction of program
 * Put variables and constants here
 
     END    START        ; last line of source
+
+
 
 
 
