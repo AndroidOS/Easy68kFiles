@@ -18,6 +18,9 @@ START:                  ; first instruction of program
      move     #20,d0     ; move 20 to D0
      rol      #2,d0      ; rotate left by 2
      
+     move     #20,d0
+     ror      #2,d0
+     
 
 
     SIMHALT             ; halt simulator
@@ -25,6 +28,7 @@ START:                  ; first instruction of program
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
