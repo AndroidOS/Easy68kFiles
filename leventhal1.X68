@@ -23,6 +23,8 @@ START:                  ; first instruction of program
      
      clr.l    d3         ; clear D3
      
+     moveA.l #$FFFFFFFF,a0  ; move $FFFFFFFF to A0
+     
 
 
     SIMHALT             ; halt simulator
@@ -30,6 +32,7 @@ START:                  ; first instruction of program
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
