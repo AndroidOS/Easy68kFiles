@@ -25,6 +25,8 @@ START:                  ; first instruction of program
      
      moveA.l #$FFFFFFFF,a0  ; move $FFFFFFFF to A0
      
+     moveq.l #1,d0       ; move quick 1 into D0
+     
 
 
     SIMHALT             ; halt simulator
@@ -32,6 +34,7 @@ START:                  ; first instruction of program
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
