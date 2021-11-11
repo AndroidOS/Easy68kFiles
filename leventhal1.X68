@@ -27,6 +27,16 @@ START:                  ; first instruction of program
      
      moveq.l #1,d0       ; move quick 1 into D0
      
+     movem d0-d3/a0-a6,-(sp)    ; push D0 to D3 and A0 to A6
+     
+     clr.l d0   ; clear D0
+     clr.l d1   ; clear D1
+     clr.l d2   ; clear D2
+     clr.l d3   ; clear D3
+     
+     movem (sp)+,d0-d3/a0-a6    ; pop D0 to D3 and A0 to A6
+
+     
 
 
     SIMHALT             ; halt simulator
@@ -34,6 +44,8 @@ START:                  ; first instruction of program
 * Put variables and constants here
 
     END    START        ; last line of source
+
+
 
 
 
