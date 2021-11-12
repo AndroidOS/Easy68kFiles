@@ -37,13 +37,14 @@ START:                  ; first instruction of program
      movem (sp)+,d0-d3/a0-a6    ; pop D0 to D3 and A0 to A6
 
      
-
+     addq #2,d3
 
     SIMHALT             ; halt simulator
 
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
