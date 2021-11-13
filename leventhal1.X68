@@ -38,12 +38,14 @@ START:                  ; first instruction of program
 
      
      addq #2,d3
+     subq #1,d0
 
     SIMHALT             ; halt simulator
 
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
