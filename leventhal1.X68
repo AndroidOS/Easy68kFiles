@@ -39,12 +39,20 @@ START:                  ; first instruction of program
      
      addq #2,d3
      subq #1,d0
+     
+     move.l #65,d2
+     neg    d2
+     neg    d2
+     
+     negx   d2
+     negx   d2
 
     SIMHALT             ; halt simulator
 
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
