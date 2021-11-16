@@ -37,21 +37,26 @@ START:                  ; first instruction of program
      movem (sp)+,d0-d3/a0-a6    ; pop D0 to D3 and A0 to A6
 
      
-     addq #2,d3
-     subq #1,d0
+     addq #2,d3     ; inc d3 by 2
+     subq #1,d0     ; dec d0 by 1
      
-     move.l #65,d2
-     neg    d2
-     neg    d2
+     move.l #65,d2      ; move 65 into D2
+     neg    d2      ; negate d2
+     neg    d2      ; negate d2 again restoring original number
      
-     negx   d2
-     negx   d2
+     negx   d2      ; negate extended D2
+     negx   d2      ; negate extended D2 again
+     
+     move.l #255,d4     ; move 255 into D4 
+     ext.l  d4      ; extend sign in D4 
 
     SIMHALT             ; halt simulator
 
 * Put variables and constants here
 
     END    START        ; last line of source
+
+
 
 
 
