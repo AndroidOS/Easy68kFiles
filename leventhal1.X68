@@ -1,4 +1,4 @@
-  *-----------------------------------------------------------
+*-----------------------------------------------------------
 * Title      : Leventhal Problems
 * Written by : Manuel Carvalho
 * Date       : 31/10/2021
@@ -8,6 +8,9 @@
 START:                  ; first instruction of program
 
 * Put program code here
+
+     bsr    SUBROUTINE 
+
      move    #10,d0      ; move 10 into D0
      move    #50,d1      ; move 50 into D1
      sub      d0,d1      ; subtract D0 from D1 and put the result in D1
@@ -49,12 +52,20 @@ START:                  ; first instruction of program
      
      move.l #255,d4     ; move 255 into D4 
      ext.l  d4      ; extend sign in D4 
-
+     
+    
     SIMHALT             ; halt simulator
+    
+SUBROUTINE:
 
+    rts
+
+
+    
 * Put variables and constants here
 
     END    START        ; last line of source
+
 
 
 
