@@ -1,4 +1,4 @@
-*-----------------------------------------------------------
+ *-----------------------------------------------------------
 * Title      : Leventhal Problems
 * Written by : Manuel Carvalho
 * Date       : 31/10/2021
@@ -57,14 +57,18 @@ START:                  ; first instruction of program
     SIMHALT             ; halt simulator
     
 SUBROUTINE:
-
+        
     rts
 
 
     
 * Put variables and constants here
 
+COUNTER:
+    ds.w    1
+
     END    START        ; last line of source
+
 
 
 
