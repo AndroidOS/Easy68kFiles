@@ -57,7 +57,7 @@ START:                  ; first instruction of program
     SIMHALT             ; halt simulator
     
 SUBROUTINE:
-        
+    lea COUNTER,a0
     rts
 
 
@@ -68,6 +68,7 @@ COUNTER:
     ds.w    1
 
     END    START        ; last line of source
+
 
 
 
