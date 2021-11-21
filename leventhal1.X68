@@ -1,4 +1,4 @@
- *-----------------------------------------------------------
+  *-----------------------------------------------------------
 * Title      : Leventhal Problems
 * Written by : Manuel Carvalho
 * Date       : 31/10/2021
@@ -58,16 +58,24 @@ START:                  ; first instruction of program
     
 SUBROUTINE:
     lea COUNTER,a0
+    ; move.l COUNTER,a0
+    
+    move.w #10,(a0)
+LOOP1:
+    subq #1,(a0) 
+    bne LOOP1   
     rts
 
 
     
 * Put variables and constants here
-
+align
 COUNTER:
-    ds.w    1
+    ds.b    1
 
     END    START        ; last line of source
+
+
 
 
 
