@@ -62,6 +62,8 @@ SUBROUTINE:
     
     move.w #10,(a0)
 LOOP1:
+    lea     text1,a1   load address of string to display into A1
+    trap    #15     
     subq #1,(a0) 
     bne LOOP1   
     rts
@@ -72,8 +74,11 @@ LOOP1:
 align
 COUNTER:
     ds.b    1
+text1  dc.b    'D1 contains: ',0   null terminated string
+
 
     END    START        ; last line of source
+
 
 
 
