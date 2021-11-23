@@ -56,6 +56,15 @@ START:                  ; first instruction of program
     
     SIMHALT             ; halt simulator
     
+* Subroutine to display Carriage Return and Line Feed - Taken from Easy68k tutorial 1
+newLine movem.l d0/a1,-(a7) push d0 & a1
+    move    #14,d0      task number into D0
+    lea     crlf,a1     address of string
+    trap    #15         display return, linefeed
+    movem.l (a7)+,d0/a1 restore d0 & a1
+    rts                 return
+
+    
 SUBROUTINE:
     lea COUNTER,a0
     ; move.l COUNTER,a0
@@ -63,7 +72,8 @@ SUBROUTINE:
     move.w #10,(a0)
 LOOP1:
     lea     text1,a1   load address of string to display into A1
-    trap    #15     
+    trap    #15
+    bsr newLine     
     subq #1,(a0) 
     bne LOOP1   
     rts
@@ -75,9 +85,12 @@ align
 COUNTER:
     ds.b    1
 text1  dc.b    'D1 contains: ',0   null terminated string
+crlf    dc.b    $d,$a,0     carriage return & line feed, null
+
 
 
     END    START        ; last line of source
+
 
 
 
