@@ -66,30 +66,34 @@ newLine movem.l d0/a1,-(a7) push d0 & a1
 
     
 SUBROUTINE:
-    lea COUNTER,a0
+    lea COUNTER,a0  ; load counter address
     ; move.l COUNTER,a0
     
-    move.w #10,(a0)
+    move.w #10,(a0) ; move 10 to counter
 LOOP1:
-    lea     text1,a1   load address of string to display into A1
-    trap    #15
-    bsr newLine     
-    subq #1,(a0) 
-    bne LOOP1   
-    rts
+    
+    move    #14,d0  ; move 14 to D0 - Print null delimitted string
+    lea     text1,a1   ; load address of string to display into A1
+    trap    #15     ; Print string
+    bsr newLine     ; Print CR
+    subq #1,(a0)    ; fast decrament COUNTER
+    bne LOOP1       ; repeat if not zero
+    rts             ; return
 
 
     
 * Put variables and constants here
-align
+;align
 COUNTER:
     ds.b    1
-text1  dc.b    'D1 contains: ',0   null terminated string
+text1  dc.b    'Hello World! ',0   null terminated string
 crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
 
     END    START        ; last line of source
+
+
 
 
 
