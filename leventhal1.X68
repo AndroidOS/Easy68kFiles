@@ -63,6 +63,18 @@ newLine movem.l d0/a1,-(a7) push d0 & a1
     trap    #15         display return, linefeed
     movem.l (a7)+,d0/a1 restore d0 & a1
     rts                 return
+    
+
+* printNum displays the number stored in D8 
+printNum
+    lea NUMBER,a3
+    move    d8,(a3)
+    movem.l d0/a1,-(a7) push d0 & a1
+    move    #14,d0      task number into D0
+    lea     crlf,a1     address of string
+    trap    #15         display return, linefeed
+    movem.l (a7)+,d0/a1 restore d0 & a1
+    rts     
 
     
 SUBROUTINE:
@@ -71,7 +83,6 @@ SUBROUTINE:
     
     move.w #10,(a0) ; move 10 to counter
 LOOP1:
-    
     move    #14,d0  ; move 14 to D0 - Print null delimitted string
     lea     text1,a1   ; load address of string to display into A1
     trap    #15     ; Print string
@@ -84,14 +95,16 @@ LOOP1:
     
 * Put variables and constants here
 ;align
-COUNTER:
-    ds.b    1
+COUNTER:    ds.b    1
+NUMBER:     ds.b    1
 text1  dc.b    'Hello World! ',0   null terminated string
 crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
 
     END    START        ; last line of source
+
+
 
 
 
