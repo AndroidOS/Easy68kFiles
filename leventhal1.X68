@@ -95,14 +95,15 @@ LOOP1:
     
 * Put variables and constants here
 ;align
-COUNTER:    ds.b    1
-NUMBER:     ds.b    1
+COUNTER:    ds.b    1   ; counter variable
+NUMBER:     ds.b    1   ; number variable
 text1  dc.b    'Hello World! ',0   null terminated string
 crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
 
     END    START        ; last line of source
+
 
 
 
