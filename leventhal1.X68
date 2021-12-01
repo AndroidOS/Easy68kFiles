@@ -10,6 +10,7 @@ START:                  ; first instruction of program
 * Put program code here
 
      bsr    SUBROUTINE 
+     bsr    LOOPING
 
      move    #10,d0      ; move 10 into D0
      move    #50,d1      ; move 50 into D1
@@ -76,6 +77,9 @@ printNum
     movem.l (a7)+,d0/a1 restore d0 & a1
     rts     
 
+LOOPING:
+    
+    rts
     
 SUBROUTINE:
     lea COUNTER,a0  ; load counter address
@@ -103,6 +107,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
