@@ -78,7 +78,9 @@ printNum
     rts     
 
 LOOPING:
-    
+    move #1,d9
+LOOP2:
+    add.l   d9,d9    
     rts
     
 SUBROUTINE:
@@ -107,6 +109,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
