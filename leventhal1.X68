@@ -69,7 +69,7 @@ newLine movem.l d0/a1,-(a7) push d0 & a1
 * printNum displays the number stored in D8 
 printNum
     lea NUMBER,a3
-    move    d8,(a3)
+    move    d3,(a3)
     movem.l d0/a1,-(a7) push d0 & a1
     move    #14,d0      task number into D0
     lea     crlf,a1     address of string
@@ -78,9 +78,9 @@ printNum
     rts     
 
 LOOPING:
-    move #1,d9
+    move #1,d5
 LOOP2:
-    add.l   d9,d9    
+    add.l   d5,d5    
     rts
     
 SUBROUTINE:
@@ -109,6 +109,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
