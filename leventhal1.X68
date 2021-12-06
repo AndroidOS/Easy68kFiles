@@ -11,6 +11,7 @@ START:                  ; first instruction of program
 
      bsr    SUBROUTINE 
      bsr    LOOPING
+     bsr    SHIFTING
 
      move    #10,d0      ; move 10 into D0
      move    #50,d1      ; move 50 into D1
@@ -75,7 +76,11 @@ printNum
     lea     crlf,a1     address of string
     trap    #15         display return, linefeed
     movem.l (a7)+,d0/a1 restore d0 & a1
-    rts     
+    rts  
+
+SHIFTING:
+    rts
+   
 
 LOOPING:
     move #10,d5
@@ -112,6 +117,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
