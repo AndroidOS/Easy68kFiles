@@ -79,6 +79,9 @@ printNum
     rts  
 
 SHIFTING:
+    move  #255,d5
+LOOP_SH:
+    ror.l #1,d5
     rts
    
 
@@ -117,6 +120,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
