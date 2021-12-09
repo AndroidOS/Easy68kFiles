@@ -80,8 +80,11 @@ printNum
 
 SHIFTING:
     move  #255,d5
+    move  #10,d3  
 LOOP_SH:
     ror.l #1,d5
+    subq  #1,d3
+    bne LOOP_SH
     rts
    
 
@@ -120,6 +123,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
