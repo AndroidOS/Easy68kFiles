@@ -80,7 +80,7 @@ printNum
 
 SHIFTING:
     move  #255,d5   ; number to test
-    move  #10,d3    ; times to ROR : Counter
+    move  #20,d3    ; times to ROR : Counter
 LOOP_SH:
     ror.l #1,d5     ; rotate right once register D5
     subq  #1,d3     ; decrement d3 by one
@@ -123,6 +123,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
