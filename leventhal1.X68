@@ -89,13 +89,13 @@ LOOP_SH:
    
 
 LOOPING:
-    move #10,d5
-    move #10,d3
+    move #10,d5     ; move 10 to D5 : Test Number
+    move #10,d3     ; move 10 to D3 : Counter
 LOOP2:
-    add.l   d5,d5
-    subq    #1,d3  
-    bne LOOP2  
-    rts
+    add.l   d5,d5   ; add D5 to D5
+    subq    #1,d3   ; decrament counter
+    bne LOOP2       ; Do again if counter not 0
+    rts             ; Return
     
 SUBROUTINE:
     lea COUNTER,a0  ; load counter address
@@ -123,6 +123,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
