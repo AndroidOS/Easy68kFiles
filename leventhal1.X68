@@ -79,18 +79,24 @@ printNum
     rts  
 
 SHIFTING:
-    move  #255,d5   ; number to test
-    move  #20,d3    ; times to ROR : Counter
-LOOP_SH:
+    move.l  #255,d5   ; number to test
+    move.l  #20,d3    ; times to ROR : Counter
+LOOP_SH1:
     ror.l #1,d5     ; rotate right once register D5
     subq  #1,d3     ; decrement d3 by one
-    bne LOOP_SH     ; is counter 0. no repeat
+    bne LOOP_SH1    ; is counter 0. no repeat
+    
+    move.l  #255,d5   ; number to test
+    move.l  #2,d3     ; times to ROR : Counter
+LOOP_SH2:
+    rol.l #1,d5     ; rotate left once register D5
+
     rts             ; return from subroutine
    
 
 LOOPING:
-    move #10,d5     ; move 10 to D5 : Test Number
-    move #10,d3     ; move 10 to D3 : Counter
+    move.l #10,d5     ; move 10 to D5 : Test Number
+    move.l #10,d3     ; move 10 to D3 : Counter
 LOOP2:
     add.l   d5,d5   ; add D5 to D5
     subq    #1,d3   ; decrament counter
@@ -123,6 +129,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
