@@ -90,6 +90,9 @@ LOOP_SH1:
     move.l  #2,d3     ; times to ROR : Counter
 LOOP_SH2:
     rol.l #1,d5     ; rotate left once register D5
+    subq  #1,d3     ; decrement d3 by one
+    bne LOOP_SH1    ; is counter 0. no repeat
+
 
     rts             ; return from subroutine
    
@@ -129,6 +132,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
