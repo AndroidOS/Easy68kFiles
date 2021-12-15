@@ -9,6 +9,7 @@ START:                  ; first instruction of program
 
 * Put program code here
 
+     bsr    ASHL_L
      bsr    SUBROUTINE 
      bsr    LOOPING
      bsr    SHIFTING
@@ -95,6 +96,9 @@ LOOP_SH2:
 
 
     rts             ; return from subroutine
+    
+ASHL_L:
+    rts
    
 
 LOOPING:
@@ -132,6 +136,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
