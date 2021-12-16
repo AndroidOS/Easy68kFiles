@@ -98,6 +98,10 @@ LOOP_SH2:
     rts             ; return from subroutine
     
 ASHL_L:
+    move.l  #255,d5
+    move.l  #32,d3
+LOOP_ASH:
+    asl.l   #1,d5
     rts
    
 
@@ -136,6 +140,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
