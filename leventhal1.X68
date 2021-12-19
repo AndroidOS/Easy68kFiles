@@ -8,7 +8,7 @@
 START:                  ; first instruction of program
 
 * Put program code here
-
+     bsr    ASHR_R
      bsr    ASHL_L
      bsr    SUBROUTINE 
      bsr    LOOPING
@@ -97,6 +97,9 @@ LOOP_SH2:
 
     rts             ; return from subroutine
     
+ASHR_R:
+    rts
+    
 ASHL_L:
     move.l  #255,d5   ; move 255 to D5 : Test Number
     move.l  #32,d3    ; move 10 to D3 : Counter
@@ -143,6 +146,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
