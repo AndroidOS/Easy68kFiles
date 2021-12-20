@@ -98,6 +98,9 @@ LOOP_SH2:
     rts             ; return from subroutine
     
 ASHR_R:
+    move.l  #255,d5   ; move 255 to D5 : Test Number
+    move.l  #32,d3    ; move 10 to D3 : Counter
+LOOP_ASHR:
     rts
     
 ASHL_L:
@@ -146,6 +149,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
