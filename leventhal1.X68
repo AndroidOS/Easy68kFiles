@@ -101,6 +101,10 @@ ASHR_R:
     move.l  #255,d5   ; move 255 to D5 : Test Number
     move.l  #32,d3    ; move 10 to D3 : Counter
 LOOP_ASHR:
+    asr.l   #1,d5   ;   arithematic shift right by 1 D5
+    subq    #1,d3   ;   decrement counter (D3)
+    bne     LOOP_ASHL   ; repeat if counter not 0 
+
     rts
     
 ASHL_L:
@@ -149,6 +153,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
