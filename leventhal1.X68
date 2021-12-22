@@ -13,6 +13,7 @@ START:                  ; first instruction of program
      bsr    SUBROUTINE 
      bsr    LOOPING
      bsr    SHIFTING
+     bsr    DRAW
 
      move    #10,d0      ; move 10 into D0
      move    #50,d1      ; move 50 into D1
@@ -140,6 +141,9 @@ LOOP1:
     subq #1,(a0)    ; fast decrament COUNTER
     bne LOOP1       ; repeat if not zero
     rts             ; return
+    
+DRAW:
+    rts
 
 
     
@@ -153,6 +157,7 @@ crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
     END    START        ; last line of source
+
 
 
 
