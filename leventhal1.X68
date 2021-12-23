@@ -8,12 +8,13 @@
 START:                  ; first instruction of program
 
 * Put program code here
+     bsr    DRAW
      bsr    ASHR_R
      bsr    ASHL_L
      bsr    SUBROUTINE 
      bsr    LOOPING
      bsr    SHIFTING
-     bsr    DRAW
+     
 
      move    #10,d0      ; move 10 into D0
      move    #50,d1      ; move 50 into D1
@@ -143,6 +144,17 @@ LOOP1:
     rts             ; return
     
 DRAW:
+    move.l  #AQUA,d1        set pen color
+    move.b  #80,d0
+    trap    #15
+
+    move.l  #80,d1          X = 80
+    move.l  #80,d2          Y = 80
+    move.b  #82,d0
+    trap    #15             draw pixel
+
+    SIMHALT                 Halt Simulator
+
     rts
 
 
@@ -155,7 +167,7 @@ text1  dc.b    'Hello World! ',0   null terminated string
 crlf    dc.b    $d,$a,0     carriage return & line feed, null
 
 
-
+AQUA    EQU    $00FFFF00
     END    START        ; last line of source
 
 
