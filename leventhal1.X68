@@ -152,6 +152,16 @@ DRAW:
     move.l  #80,d2          Y = 80
     move.b  #82,d0
     trap    #15             draw pixel
+    
+    move.l  #100,d1         X = 100
+    move.l  #200,d2         Y = 200
+    move.b  #86,d0
+    trap    #15             move to X,Y
+    
+    move.b  #82,d0
+    trap    #15             draw pixel
+
+
 
     SIMHALT                 Halt Simulator
 
@@ -185,6 +195,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
