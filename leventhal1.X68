@@ -168,8 +168,11 @@ DRAW:
     rts
     
 DRAW_PIXEL:
+     movem.l d0-d1/a1,-(a7) push d0,d1 & a1
      move.b  #82,d0
      trap    #15             draw pixel
+     movem.l (a7)+,d0-d1/a1 restore d0,d1 & a1
+
      rts
 
 
@@ -201,6 +204,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
