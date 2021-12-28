@@ -150,8 +150,14 @@ DRAW:
 
     move.l  #80,d1          X = 80
     move.l  #80,d2          Y = 80
+    move.l  #20,d6
+    
+draw_loop:
     
     bsr DRAW_PIXEL
+    addq    #1,d2
+    subq    #1,d6
+    bne draw_loop
     
     move.l  #100,d1         X = 100
     move.l  #200,d2         Y = 200
@@ -204,6 +210,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
