@@ -8,6 +8,9 @@
 START:                  ; first instruction of program
 
 * Put program code here
+     move.l  #80,d1          X = 80
+     move.l  #80,d2          Y = 80
+
      bsr    DRAW
      bsr    ASHR_R
      bsr    ASHL_L
@@ -144,12 +147,14 @@ LOOP1:
     rts             ; return
     
 DRAW:
+    movem d0-d3/a0-a6,-(sp)
     move.l  #AQUA,d1        set pen color
     move.b  #80,d0
     trap    #15
 
-    move.l  #80,d1          X = 80
-    move.l  #80,d2          Y = 80
+    movem (sp)+,d0-d3/a0-a6
+   ; move.l  #80,d1          X = 80
+   ; move.l  #80,d2          Y = 80
     move.l  #20,d6
     
 draw_loop:
@@ -210,6 +215,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
