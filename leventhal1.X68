@@ -12,6 +12,14 @@ START:                  ; first instruction of program
      move.l  #80,d2          Y = 80
 
      bsr    DRAW
+     
+     move.l  #90,d1          X = 90
+     move.l  #90,d2          Y = 90
+
+     bsr    DRAW
+     
+      SIMHALT                 Halt Simulator
+
      bsr    ASHR_R
      bsr    ASHL_L
      bsr    SUBROUTINE 
@@ -174,7 +182,7 @@ draw_loop:
 
 
 
-    SIMHALT                 Halt Simulator
+   
 
     rts
     
@@ -215,6 +223,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
