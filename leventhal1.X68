@@ -14,9 +14,16 @@ START:                  ; first instruction of program
      bsr    DRAW
      
      move.l  #90,d1          X = 90
-     move.l  #90,d2          Y = 90
+     move.l  #80,d2          Y = 80
 
      bsr    DRAW
+     
+     move.l  #100,d1         X = 100
+     move.l  #80,d2          Y = 80
+
+     bsr    DRAW
+
+     
      
       SIMHALT                 Halt Simulator
 
@@ -223,6 +230,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
