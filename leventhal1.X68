@@ -190,6 +190,16 @@ draw_loop:
     trap    #15             draw pixel
     
 DRAW_H:
+    movem d0-d3/a0-a6,-(sp)
+    move.l  #AQUA,d1        set pen color
+    move.b  #80,d0
+    trap    #15
+
+    movem (sp)+,d0-d3/a0-a6
+   ; move.l  #80,d1          X = 80
+   ; move.l  #80,d2          Y = 80
+    move.l  #20,d6
+
     rts
 
 
@@ -235,6 +245,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
