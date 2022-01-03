@@ -23,6 +23,10 @@ START:                  ; first instruction of program
 
      bsr    DRAW
      
+     move.l  #100,d1         X = 80
+     move.l  #80,d2          Y = 80
+
+     
      bsr    DRAW_H
 
      
@@ -189,6 +193,8 @@ draw_loop:
     move.b  #82,d0
     trap    #15             draw pixel
     
+    rts
+    
 DRAW_H:
     movem d0-d3/a0-a6,-(sp)
     move.l  #AQUA,d1        set pen color
@@ -198,7 +204,23 @@ DRAW_H:
     movem (sp)+,d0-d3/a0-a6
    ; move.l  #80,d1          X = 80
    ; move.l  #80,d2          Y = 80
-    move.l  #20,d6
+    move.l  #60,d6
+    
+draw_loopH:
+    
+    bsr DRAW_PIXEL
+    addq    #1,d1
+    subq    #1,d6
+    bne draw_loopH
+    
+   ; move.l  #100,d1         X = 100
+   ; move.l  #200,d2         Y = 200
+    move.b  #86,d0
+    trap    #15             move to X,Y
+    
+    move.b  #82,d0
+    trap    #15             draw pixel
+
 
     rts
 
