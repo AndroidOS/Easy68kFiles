@@ -28,6 +28,13 @@ START:                  ; first instruction of program
 
      
      bsr    DRAW_H
+     
+     move.l  #80,d1         X = 100
+     move.l  #80,d2          Y = 80
+
+     
+     bsr    DRAW_H
+
 
      
      
@@ -222,12 +229,7 @@ draw_loopH:
     trap    #15             draw pixel
 
 
-    rts
-
-
-
    
-
     rts
     
 DRAW_PIXEL:
@@ -267,6 +269,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
