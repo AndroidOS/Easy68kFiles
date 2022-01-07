@@ -8,6 +8,9 @@
 START:                  ; first instruction of program
 
 * Put program code here
+
+     bsr MULTIPLY
+     
      move.l  #80,d1          X = 80
      move.l  #80,d2          Y = 80
 
@@ -240,7 +243,8 @@ DRAW_PIXEL:
 
      rts
 
-
+MULTIPLY:
+    rts
 
     
 * Put variables and constants here
@@ -269,6 +273,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
