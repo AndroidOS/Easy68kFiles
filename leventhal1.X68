@@ -11,7 +11,9 @@ START:                  ; first instruction of program
      move.l #30,d0
      move.l #20,d1
 
+     bsr DIVIDE
      bsr MULTIPLY
+     
      
      SIMHALT             ; halt simulator
 
@@ -253,6 +255,9 @@ MULTIPLY:
     ;move.l  #30,d1
     muls    d0,d1
     rts
+    
+DIVIDE:
+    rts
 
     
 * Put variables and constants here
@@ -281,6 +286,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
