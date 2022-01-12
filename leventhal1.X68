@@ -12,10 +12,12 @@ START:                  ; first instruction of program
      move.l #20,d1
 
      bsr DIVIDE
+     
+      SIMHALT             ; halt simulator
      bsr MULTIPLY
      
      
-     SIMHALT             ; halt simulator
+    
 
      
      move.l  #80,d1          X = 80
@@ -258,7 +260,8 @@ MULTIPLY:
     
 DIVIDE:
     move.l  #30,d0
-    move.l  #30,d1
+    move.l  #60,d1
+    divs    d0,d1
 
     rts
 
@@ -289,6 +292,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
