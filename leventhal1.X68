@@ -8,13 +8,17 @@
 START:                  ; first instruction of program
 
 * Put program code here
+
+     bsr addNums
+     
+     SIMHALT             ; halt simulator
      
      move.l  #30,d0
      move.l  #60,d1
 
      bsr DIVIDE
      
-      SIMHALT             ; halt simulator
+      
       
      move.l #30,d0
      move.l #20,d1
@@ -269,6 +273,10 @@ DIVIDE:
     divs    d0,d1
 
     rts
+    
+addNums:
+    rts
+
 
     
 * Put variables and constants here
@@ -297,6 +305,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
