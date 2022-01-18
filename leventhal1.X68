@@ -9,13 +9,16 @@ START:                  ; first instruction of program
 
 * Put program code here
 
+     bsr subNums
+     SIMHALT             ; halt simulator
+
      move.l  #30,d0
      move.l  #60,d1
 
 
      bsr addNums
      
-     SIMHALT             ; halt simulator
+     
      
      move.l  #30,d0
      move.l  #60,d1
@@ -281,6 +284,9 @@ DIVIDE:
 addNums:
     add      d0,d1      ; add D0 into D1
     rts
+    
+subNums:
+    rts
 
 
     
@@ -310,6 +316,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
