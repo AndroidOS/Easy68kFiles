@@ -286,6 +286,8 @@ addNums:
     rts
     
 subNums:
+    sub      d0,d1      ; subtract D0 from D1 and put the result in D1
+
     rts
 
 
@@ -316,6 +318,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
