@@ -300,6 +300,8 @@ subNums:
 xorNums:
      move.l  #60,d0
      move.l  #30,d1
+     
+     eor.l  d0,d1
 
     rts
 
@@ -332,6 +334,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
