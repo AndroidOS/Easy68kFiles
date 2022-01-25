@@ -9,7 +9,9 @@ START:                  ; first instruction of program
 
 * Put program code here
 
-     bsr xorNums
+
+     bsr xorLoop
+     ;bsr xorNums
     
      SIMHALT             ; halt simulator
 
@@ -297,6 +299,10 @@ subNums:
 
     rts
     
+xorLoop:
+     rts
+
+    
 xorNums:
      move.l  #60,d0
      move.l  #30,d1
@@ -334,6 +340,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
