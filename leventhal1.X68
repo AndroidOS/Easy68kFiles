@@ -300,12 +300,19 @@ subNums:
     rts
     
 xorLoop:
+     move.l  #255,d3
+     move.l  #30,d1
+xorLoop_loop:
+     bsr xorNums
+     subq    #1,d6
+     bne xorLoop_loop
+    
      rts
 
     
 xorNums:
      move.l  #60,d0
-     move.l  #30,d1
+     
      
      eor.l  d0,d1
 
@@ -340,6 +347,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
