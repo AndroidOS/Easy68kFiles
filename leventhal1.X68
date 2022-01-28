@@ -304,6 +304,7 @@ xorLoop:
      move.l  #30,d1
 xorLoop_loop:
      bsr xorNums
+     addq #1,d1
      subq    #1,d6
      bne xorLoop_loop
     
@@ -347,6 +348,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
