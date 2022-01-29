@@ -310,6 +310,9 @@ xorLoop_loop:
     
      rts
 
+
+orNums:
+    rts
     
 xorNums:
      move.l  #60,d0
@@ -348,6 +351,7 @@ LTGRAY  EQU    $00C0C0C0
 WHITE   EQU    $00FFFFFF
 
     END    START        ; last line of source
+
 
 
 
